@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gustavo de Oliveira</title>
+    <link rel="icon"
+        href="https://avatars.githubusercontent.com/u/59635709?s=400&u=067f3f37ec8950596b7335e085a91d9b838d4b07&v=4"
+        type="image/x-icon" />
+    <link href="night-night.theme.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked@2.0.0/marked.min.js"></script>
+    <style>
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="content"></div>
+    <script>
+        fetch('https://raw.githubusercontent.com/gusosilva/gusosilva.com/main/README.md')
+            .then(response => response.text())
+            .then(data => {
+                const readmeHtml = marked(data);
+                const container = document.getElementById('content');
+                container.innerHTML = readmeHtml;
+            })
+            .catch(error => console.error("Oops:", error));
+    </script>
+</body>
+
+</html>

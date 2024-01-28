@@ -13,3 +13,4 @@ Cores que eu gosto:
 `#0969DA`
 
 Deixa uma estrela nesse [repo](https://github.com/gusosilva/gusosilva.com/)? :star2:
+Te amo meu amor Thata <3

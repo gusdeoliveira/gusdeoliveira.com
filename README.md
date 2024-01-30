@@ -1,16 +1,12 @@
 # Gustavo de Oliveira
-## Full Stack
-
-[LinkedIn](https://github.com/gusosilva/gusosilva.com/) | [GitHub](https://github.com/gusosilva/gusosilva.com/)
+## Desenvolvedor Fullstack - [LinkedIn](https://github.com/gusosilva/gusosilva.com/) | [GitHub](https://github.com/gusosilva/gusosilva.com/)
 
 Bem-vindo ao meu site!
 
-> A vida, o universo, e tudo mais.
+> The strange rock moving around in this grotto appears to react to conscious observation.
+The level-headed among us realize there must be some sort of optical illusion at play, but Gabbro claims the rock "exists in all possible states until it is observed" (whatever that means).
+Whatever is actually happening, both sides of this debate agree the effect is extremely creepy.
 
-Cores que eu gosto:
+Deixa uma estrela nesse [repo](https://github.com/gusosilva/gusosilva.com/)? 🌟
 
-`#ffffff`
-`#0969DA`
-
-Deixa uma estrela nesse [repo](https://github.com/gusosilva/gusosilva.com/)? :star2:
-Te amo meu amor Thata <3
+`<footer>Feito cuidadosamente com HTML/CSS e Javascript. Hospedado pelo Azure sob automação do GitHub Actions</footer>`

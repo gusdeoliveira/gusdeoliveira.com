@@ -76,19 +76,16 @@ function updateUI() {
     const langIcon = document.getElementById('langIcon');
     langText.textContent = languages[currentLang].display;
     langIcon.src = isDarkMode ? 'icons/language-dark.svg' : 'icons/language.svg';
-    document.getElementById('langToggle').title = `Switch to ${languages[currentLang].nextLang}`;
     
     // Theme button - shows current theme icon
     const themeIcon = document.getElementById('themeIcon');
     if (currentTheme !== 'auto') {
         themeIcon.src = isDarkMode ? themes[currentTheme].iconFileDark : themes[currentTheme].iconFile;
-        themeIcon.parentElement.title = `Switch to ${themes[currentTheme].nextTheme}`;
     } else {
         // Auto theme: determine icon based on system preference
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const currentThemeForAuto = prefersDark ? 'dark' : 'light';
         themeIcon.src = prefersDark ? themes[currentThemeForAuto].iconFileDark : themes[currentThemeForAuto].iconFile;
-        themeIcon.parentElement.title = prefersDark ? 'Switch to Light' : 'Switch to Dark';
     }
     
     // Apply theme

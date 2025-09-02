@@ -88,7 +88,7 @@ body {
         padding-top: 80px; /* Mais espaço para os controles maiores */
     }
 
-    .content {
+    #content {
         margin-top: 15vw;
     }
 }
@@ -153,6 +153,11 @@ a {
     color: var(--link-color);
     text-decoration: none;
     transition: color 0.3s ease;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Controls */
@@ -180,6 +185,10 @@ a {
     opacity: 1;
     height: var(--control-size);
     min-width: var(--control-size);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .control-btn:hover {
@@ -204,6 +213,10 @@ a {
     font-size: var(--lang-font-size);
     font-weight: var(--lang-font-weight);
     letter-spacing: 0.5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Small mobile devices optimization */

@@ -1,27 +1,107 @@
+:root {
+    /* Default: follows system preference */
+    --bg-color: #FFFFFF;
+    --text-color: #24292f;
+    --container-bg: #FFFFFF;
+    --border-color: #d1d9e0;
+    --quote-text: #656d76;
+    --code-text: #656d76;
+    --link-color: #0969da;
+    
+    /* Control sizes - Using responsive units */
+    --control-size: 2.5rem;
+    --icon-size: 1.8rem;
+    --control-padding: 0.6rem;
+    --control-radius: 0.5rem;
+    --lang-font-size: 0.85rem;
+    --lang-font-weight: 500;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark theme when system prefers dark */
+        --bg-color: #0D1117;
+        --text-color: #FFFFFF;
+        --container-bg: #0D1117;
+        --border-color: #30363d;
+        --quote-text: #c9d1d9;
+        --code-text: #8b949e;
+        --link-color: #1f6feb;
+    }
+}
+
+/* Manual theme overrides */
+[data-theme="light"] {
+    --bg-color: #FFFFFF;
+    --text-color: #24292f;
+    --container-bg: #FFFFFF;
+    --border-color: #d1d9e0;
+    --quote-text: #656d76;
+    --code-text: #656d76;
+    --link-color: #0969da;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0D1117;
+    --text-color: #FFFFFF;
+    --container-bg: #0D1117;
+    --border-color: #30363d;
+    --quote-text: #c9d1d9;
+    --code-text: #8b949e;
+    --link-color: #1f6feb;
+}
+
 body {
-    background-color: #0D1117;
-    color: #FFFFFF;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     margin: 0;
     padding: 0;
     font-size: 1.2rem;
     line-height: 1.5;
     word-wrap: break-word;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Mobile and Tablet optimization */
 @media only screen and (max-width: 1024px) {
+    :root {
+        /* Mobile control sizes - AUMENTADOS para melhor usabilidade */
+        --control-size: 10vw;
+        --icon-size: 6vw;
+        --control-padding: 2vw;
+        --control-radius: 4vw;
+        --lang-font-size: 3vw;
+        --lang-font-weight: 600;
+    }
+    
     body {
         font-size: 2.5rem;
+    }
+    
+    .controls {
+        top: 9vh;
+        right: 4vw;
+    }
+    
+    .container {
+        padding-top: 80px; /* Mais espaço para os controles maiores */
+    }
+
+    .content {
+        margin-top: 15vw;
     }
 }
 
 .container {
-    background-color: #0D1117;
+    background-color: var(--container-bg);
     margin: 5% auto;
     padding: 40px;
     border-radius: 8px;
     width: 80%;
     overflow-y: auto;
+    transition: background-color 0.3s ease;
+    position: relative;
 }
 
 h1,
@@ -30,7 +110,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #FFFFFF;
+    color: var(--text-color);
     margin-bottom: 0.5em;
 }
 
@@ -38,35 +118,113 @@ p,
 ol,
 ul {
     margin-bottom: 1em;
-    color: #FFFFFF;
+    color: var(--text-color);
 }
 
 code {
-    background-color: #0d1117;
-    border: 1px solid #30363d;
+    background-color: var(--container-bg);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 2px 6px;
-    color: #FFFFFF;
+    color: var(--text-color);
     font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 pre {
-    background-color: #0d1117;
-    border: 1px solid #30363d;
+    background-color: var(--container-bg);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 10px;
-    color: #8b949e;
+    color: var(--code-text);
     overflow-x: auto;
     font-size: 14px;
+    transition: all 0.3s ease;
 }
 
 blockquote {
-    border-left: 4px solid #30363d;
+    border-left: 4px solid var(--border-color);
     padding-left: 15px;
-    color: #c9d1d9;
+    color: var(--quote-text);
+    transition: all 0.3s ease;
 }
 
 a {
-    color: #1f6feb;
+    color: var(--link-color);
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Controls */
+.controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: var(--control-gap);
+    z-index: 10;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    border-radius: var(--control-radius);
+    padding: var(--control-padding);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    opacity: 1;
+    height: var(--control-size);
+    min-width: var(--control-size);
+}
+
+.control-btn:hover {
+    --background: var(--border-color);
+    transform: scale(1.05);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+.icon { 
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transition: inherit;
+}
+
+/* Icons use specific colors for each theme */
+
+/* Language text */
+.lang-text {
+    font-size: var(--lang-font-size);
+    font-weight: var(--lang-font-weight);
+    letter-spacing: 0.5px;
+}
+
+/* Small mobile devices optimization */
+@media only screen and (max-width: 480px) {
+    :root {
+        /* Small mobile - AINDA MAIORES para telas pequenas */
+        --control-size: 10vw;
+        --icon-size: 8vw;
+        --control-padding: 2.5vw;
+        --control-gap: 4vw;
+        --control-radius: 2.5vw;
+        --lang-font-size: 7vw;
+        --lang-font-weight: 600;
+    }
+    
+    .controls {
+        top: 6vh;
+        right: 3vw;
+    }
+    
+    .container {
+        padding-top: 100px; /* Ainda mais espaço para controles grandes */
+    }
 }

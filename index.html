@@ -17,17 +17,20 @@
 </head>
 
 <body>
-    <div class="container" id="content"></div>
-    <script>
-        fetch('https://raw.githubusercontent.com/gusosilva/gusosilva.com/main/README.md')
-            .then(response => response.text())
-            .then(data => {
-                const readmeHtml = marked(data);
-                const container = document.getElementById('content');
-                container.innerHTML = readmeHtml;
-            })
-            .catch(error => console.error("Oops:", error));
-    </script>
+    <div class="container">
+        <div class="controls">
+            <button class="control-btn" id="langToggle" title="Switch Language">
+                <img class="icon" id="langIcon" src="icons/language.svg" alt="Language">
+                <span class="lang-text" id="langText">PT</span>
+            </button>
+            <button class="control-btn" id="themeToggle" title="Switch Theme">
+                <img class="icon" id="themeIcon" src="icons/theme-light.svg" alt="Theme">
+            </button>
+        </div>
+        <div id="content"></div>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 
 </html>

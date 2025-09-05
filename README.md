@@ -1,7 +1,8 @@
 
 
 Bem-vindo! Eu sou o **Gustavo** e esse é o meu site.
-## Desenvolvedor Full Stack. Me contate pelo [LinkedIn](https://www.linkedin.com/in/gusdeoliveira) | [GitHub](https://github.com/gusdeoliveira)
+## Desenvolvedor Full Stack & DevOps
+### Quer falar comigo? Me contate pelo [LinkedIn](https://www.linkedin.com/in/gusdeoliveira) | [GitHub](https://github.com/gusdeoliveira)
 
 <!-- Not pron in here -->
 > The strange rock moving around in this grotto appears to react to conscious observation.

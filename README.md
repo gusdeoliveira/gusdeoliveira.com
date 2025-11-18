@@ -1,5 +1,5 @@
 Gustavo de Oliveira **/gusdeoliveira**
-## Desenvolvedor Full Stack & DevOps 
+## Desenvolvedor Full Stack .NET & Angular
 ### Quer falar comigo? Me contate pelo [LinkedIn](https://www.linkedin.com/in/gusdeoliveira) | [GitHub](https://github.com/gusdeoliveira)
 
 <!-- Not pron in here -->

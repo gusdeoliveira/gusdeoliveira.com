@@ -1,5 +1,5 @@
 :root {
-    /* Default: follows system preference */
+
     --bg-color: #FFFFFF;
     --text-color: #24292f;
     --container-bg: #FFFFFF;
@@ -7,8 +7,8 @@
     --quote-text: #656d76;
     --code-text: #656d76;
     --link-color: #0969da;
-    
-    /* Control sizes - Using responsive units */
+
+
     --control-size: 2.5rem;
     --icon-size: 1.8rem;
     --control-padding: 0.6rem;
@@ -19,7 +19,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        /* Dark theme when system prefers dark */
+
         --bg-color: #0D1117;
         --text-color: #FFFFFF;
         --container-bg: #0D1117;
@@ -30,7 +30,7 @@
     }
 }
 
-/* Manual theme overrides */
+
 [data-theme="light"] {
     --bg-color: #FFFFFF;
     --text-color: #24292f;
@@ -63,10 +63,10 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Mobile and Tablet optimization */
+
 @media only screen and (max-width: 1024px) {
     :root {
-        /* Mobile control sizes - AUMENTADOS para melhor usabilidade */
+
         --control-size: 10vw;
         --icon-size: 6vw;
         --control-padding: 2vw;
@@ -74,18 +74,18 @@ body {
         --lang-font-size: 3vw;
         --lang-font-weight: 600;
     }
-    
+
     body {
         font-size: 2.5rem;
     }
-    
+
     .controls {
         top: 9vh;
         right: 4vw;
     }
-    
+
     .container {
-        padding-top: 80px; /* Mais espaço para os controles maiores */
+        padding-top: 80px;
     }
 
     #content {
@@ -160,7 +160,7 @@ a {
     user-select: none;
 }
 
-/* Controls */
+
 .controls {
     position: absolute;
     top: 20px;
@@ -193,38 +193,39 @@ a {
     user-select: none;
 }
 
-.control-btn:hover {
-    --background: var(--border-color);
-    transform: scale(1.05);
-}
-
 .control-btn:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
 }
 
-.icon { 
+.icon {
     width: var(--icon-size);
     height: var(--icon-size);
     transition: inherit;
 }
 
-/* Icons use specific colors for each theme */
 
-/* Language text */
+
+
 .lang-text {
     font-size: var(--lang-font-size);
     font-weight: var(--lang-font-weight);
     letter-spacing: 0.5px;
+    display: inline-flex;
+    width: 3ch;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 
-/* Small mobile devices optimization */
+
 @media only screen and (max-width: 480px) {
     :root {
-        /* Small mobile - AINDA MAIORES para telas pequenas */
+
         --control-size: 10vw;
         --icon-size: 8vw;
         --control-padding: 2.5vw;
@@ -233,13 +234,13 @@ a {
         --lang-font-size: 7vw;
         --lang-font-weight: 600;
     }
-    
+
     .controls {
         top: 6vh;
         right: 3vw;
     }
-    
+
     .container {
-        padding-top: 100px; /* Ainda mais espaço para controles grandes */
+        padding-top: 100px;
     }
 }

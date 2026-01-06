@@ -1,8 +1,6 @@
-// State management
 let currentLang = localStorage.getItem('preferred-language') || 'pt';
 let currentTheme = localStorage.getItem('preferred-theme') || 'auto';
 
-// Language and theme data
 const languages = {
     pt: {
         file: 'README.md',
@@ -16,36 +14,33 @@ const languages = {
     }
 };
 
-const themes = {
-    light: {
-        nextTheme: 'Dark',
-        iconFile: 'icons/theme-light.svg',
-        iconFileDark: 'icons/theme-light-dark.svg',
-        displayName: 'Light'
-    },
-    dark: {
-        nextTheme: 'Light',
-        iconFile: 'icons/theme-dark.svg',
-        iconFileDark: 'icons/theme-dark-dark.svg',
-        displayName: 'Dark'
-    }
+const themeIcons = {
+    light: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="4"/>
+  <path d="M12 1v2"/>
+  <path d="M12 21v2"/>
+  <path d="M4.22 4.22l1.42 1.42"/>
+  <path d="M18.36 18.36l1.42 1.42"/>
+  <path d="M1 12h2"/>
+  <path d="M21 12h2"/>
+  <path d="M4.22 19.78l1.42-1.42"/>
+  <path d="M18.36 5.64l1.42-1.42"/>
+</svg>`,
+    dark: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+</svg>`
 };
 
-// Apply theme function
 function applyTheme(theme) {
     if (theme === 'auto') {
-        // Remove data-theme to let CSS prefers-color-scheme work
         document.documentElement.removeAttribute('data-theme');
     } else {
-        // Set explicit theme
         document.documentElement.setAttribute('data-theme', theme);
     }
 }
 
-// Apply saved preferences on load
 applyTheme(currentTheme);
 
-// Load content function
 function loadContent() {
     const fileName = languages[currentLang].file;
     fetch(`https://raw.githubusercontent.com/gusosilva/gusosilva.com/main/${fileName}`)
@@ -57,7 +52,6 @@ function loadContent() {
         })
         .catch(error => {
             console.error("Oops:", error);
-            // Fallback to Portuguese if English fails
             if (currentLang === 'en') {
                 currentLang = 'pt';
                 loadContent();
@@ -65,34 +59,18 @@ function loadContent() {
         });
 }
 
-// Update UI elements
 function updateUI() {
-    // Determine if we're in dark mode (either explicit or auto)
-    const isDarkMode = currentTheme === 'dark' || 
-        (currentTheme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    
-    // Language button - shows current language
     const langText = document.getElementById('langText');
-    const langIcon = document.getElementById('langIcon');
     langText.textContent = languages[currentLang].display;
-    langIcon.src = isDarkMode ? 'icons/language-dark.svg' : 'icons/language.svg';
     
-    // Theme button - shows current theme icon
     const themeIcon = document.getElementById('themeIcon');
-    if (currentTheme !== 'auto') {
-        themeIcon.src = isDarkMode ? themes[currentTheme].iconFileDark : themes[currentTheme].iconFile;
-    } else {
-        // Auto theme: determine icon based on system preference
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const currentThemeForAuto = prefersDark ? 'dark' : 'light';
-        themeIcon.src = prefersDark ? themes[currentThemeForAuto].iconFileDark : themes[currentThemeForAuto].iconFile;
-    }
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const themeKey = currentTheme === 'auto' ? (prefersDark ? 'dark' : 'light') : currentTheme;
+    themeIcon.innerHTML = themeIcons[themeKey];
     
-    // Apply theme
     applyTheme(currentTheme);
 }
 
-// Event listeners
 document.getElementById('langToggle').addEventListener('click', () => {
     currentLang = currentLang === 'pt' ? 'en' : 'pt';
     localStorage.setItem('preferred-language', currentLang);
@@ -101,13 +79,10 @@ document.getElementById('langToggle').addEventListener('click', () => {
 });
 
 document.getElementById('themeToggle').addEventListener('click', () => {
-    // Toggle between light and dark only (no auto for user selection)
     if (currentTheme === 'auto') {
-        // If currently auto, switch to the opposite of system preference
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         currentTheme = prefersDark ? 'light' : 'dark';
     } else {
-        // Toggle between light and dark
         currentTheme = currentTheme === 'light' ? 'dark' : 'light';
     }
     
@@ -115,13 +90,11 @@ document.getElementById('themeToggle').addEventListener('click', () => {
     updateUI();
 });
 
-// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     updateUI();
     loadContent();
 });
 
-// Listen for system theme changes when in auto mode
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     if (currentTheme === 'auto') {
         updateUI();

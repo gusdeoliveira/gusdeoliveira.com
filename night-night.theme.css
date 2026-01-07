@@ -160,6 +160,14 @@ a {
     user-select: none;
 }
 
+a:focus,
+a:focus-visible,
+.control-btn:focus,
+.control-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
 
 .controls {
     position: absolute;

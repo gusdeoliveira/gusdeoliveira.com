@@ -20,10 +20,7 @@ function getLangFromUrl() {
     if (paramLang && languages[paramLang]) {
         return paramLang;
     }
-
-    const path = window.location.pathname.toLowerCase();
-    const match = path.match(/^\/(en|pt)(?:\/|$)/);
-    return match ? match[1] : null;
+    return null;
 }
 
 const urlLang = getLangFromUrl();

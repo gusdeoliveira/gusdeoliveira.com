@@ -9,4 +9,6 @@ Whatever is actually happening, both sides of this debate agree the effect is ex
 
 Leave a star on this [repo](https://github.com/gusdeoliveira/gusosilva.com/) if you like it! 🌟💻
 
+Watch my [study roadmap](https://github.com/gusdeoliveira/study-plan) and suggest me something!
+
 `<footer>Carefully crafted with coffee and JavaScript. Hosted on Azure Static Apps with GitHub Actions automation</footer>`

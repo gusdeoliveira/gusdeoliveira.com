@@ -9,4 +9,6 @@ Whatever is actually happening, both sides of this debate agree the effect is ex
 
 Deixa uma estrela nesse [repo](https://github.com/gusdeoliveira/gusosilva.com/)? 🌟💻
 
+Acompanhe meu [roadmap de estudos](https://github.com/gusdeoliveira/study-plan) e me indique algo!
+
 `<footer>Desenvolvido com café e JavaScript. Hospedado pelo Azure Static Apps sob automação do GitHub Actions</footer>`

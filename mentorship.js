@@ -1,4 +1,5 @@
-let currentTheme = localStorage.getItem('preferred-theme') || 'auto';
+const themeStorageKey = 'funildevagas-theme';
+let currentTheme = localStorage.getItem(themeStorageKey) || 'light';
 
 const themeIcons = {
     light: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>`,
@@ -41,7 +42,7 @@ document.getElementById('themeToggle').addEventListener('click', () => {
         currentTheme = currentTheme === 'light' ? 'dark' : 'light';
     }
 
-    localStorage.setItem('preferred-theme', currentTheme);
+    localStorage.setItem(themeStorageKey, currentTheme);
     updateThemeControl();
 });
 

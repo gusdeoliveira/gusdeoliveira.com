@@ -2,6 +2,8 @@ Gustavo de Oliveira **/gusdeoliveira**
 ## Desenvolvedor Full Stack .NET & Angular
 ### Quer falar comigo? Me contate pelo [LinkedIn](https://www.linkedin.com/in/gusdeoliveira) | [GitHub](https://github.com/gusdeoliveira)
 
+Conheça a [mentoria Funil de Vagas](./funildevagas.html).
+
 <!-- No pron in here -->
 > The strange rock moving around in this grotto appears to react to conscious observation.
 The level-headed among us realize there must be some sort of optical illusion at play, but Gabbro claims the rock "exists in all possible states until it is observed" (whatever that means).
